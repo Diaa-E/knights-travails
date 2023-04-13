@@ -2,7 +2,8 @@
 
 export function boardFactory()
 {
-    let board = []
+    const knight = "K";
+    let board = [];
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -35,8 +36,16 @@ export function boardFactory()
         console.log(`  | ${columnLetters.join("   ")}`)
     }
 
+    function move(x, y)
+    {
+        if (x > 7 || y > 7) throw new Error(`Illegal move [${x}, ${y}]: out of board bounds`)
+
+        board[y][x] = knight;
+    }
+
     return {
         board: board,
-        logBoard: logBoard
+        logBoard: logBoard,
+        move: move,
     };
 }
