@@ -12,10 +12,31 @@ export function boardFactory()
     {
         for (let i = 0; i < 8; i++)
         {
-            let row = Array(8).fill(null);
+            let row = Array(8).fill("☐");
             board.push(row);
         }
     }
 
-    return {board: board};
+    function logBoard()
+    {
+        for (let i = 0; i < 8; i++)
+        {
+            const row = [];
+
+            for (let j = 0; j < 8; j++)
+            {
+                if (j === 0) row.push(`${rowNumbers[i]} |`);
+                row.push(`${board[i][j]} `);
+            }
+
+            console.log(row.join(" "));
+        }
+  
+        console.log(`  | ${columnLetters.join("   ")}`)
+    }
+
+    return {
+        board: board,
+        logBoard: logBoard
+    };
 }
