@@ -18,6 +18,8 @@ export function boardFactory()
             let row = Array(8).fill("☐");
             board.push(row);
         }
+
+        board[knightPos[1]][knightPos[0]] = knight; //place knight at starting position
     }
 
     function logBoard()
