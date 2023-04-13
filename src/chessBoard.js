@@ -3,6 +3,8 @@
 export function boardFactory()
 {
     const knight = "K";
+    let knightPos = [0, 0];
+    const visited = "V";
     let board = [];
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -36,11 +38,18 @@ export function boardFactory()
         console.log(`  | ${columnLetters.join("   ")}`)
     }
 
-    function move(x, y)
+    function move(x, y, mark = true)
     {
         if (x > 7 || y > 7) throw new Error(`Illegal move [${x}, ${y}]: out of board bounds`)
 
         board[y][x] = knight;
+        if (mark === true) markVisited(knightPos[0], knightPos[1]);
+        knightPos = [x, y];
+    }
+
+    function markVisited(x, y)
+    {
+        board[y][x] = visited;
     }
 
     return {
