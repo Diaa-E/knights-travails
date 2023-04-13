@@ -13,19 +13,13 @@ const stylesHandler = 'style-loader';
 const config = {
     entry: './src/main.js',
     output: {
-        filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
     },
     devServer: {
         open: true,
         host: 'localhost',
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            filename: "[name].[contenthash].html"
-        }),
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -54,11 +48,23 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
+        config.output.filename = "[name].[contenthash].js";
+        config.output.clean = true;
+        config.plugins.push(
+            new HtmlWebpackPlugin({
+                template: 'index.html',
+                filename: "[name].[contenthash].html",
+            }),
+        )
         
     } else {
         config.mode = 'development';
         config.devtool = 'eval-source-map';
+        config.plugins.push(
+            new HtmlWebpackPlugin({
+                template: 'index.html',
+            }),
+        )
     }
     return config;
 };
