@@ -19,9 +19,9 @@ export function boardFactory()
 
     function knightsTravails()
     {
-        for (let x = 0; x < 8; x++)
+        for (let y = 0; y < 8; y++)
         {
-            for (let y = 0; y < 8; y++)
+            for (let x = 0; x < 8; x++)
             {
                 if (board[y][x] === knight || board[y][x] === visited) continue; //skip visited squares
 
@@ -89,8 +89,8 @@ export function boardFactory()
     {
         if (x > 7 || y > 7) throw new Error(`Illegal move [${x}, ${y}]: out of board bounds`)
 
-        board[y][x] = knight;
         if (mark === true) markVisited(knightPos[0], knightPos[1]);
+        board[y][x] = knight;
         knightPos = [x, y];
     }
 
