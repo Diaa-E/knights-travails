@@ -1,5 +1,7 @@
 "use strict";
 
+import { listGraph } from "./graph";
+
 export function boardFactory()
 {
     const knight = "K";
