@@ -10,4 +10,5 @@
 * The shortest path is traced using a modified Breadth first algorithm (modifed as in traces the path not only searching")
 
 * A knight's possible moves at any position all follow the same pattern
+
 ![Next Moves Pattern](./pattern_guide.png)
