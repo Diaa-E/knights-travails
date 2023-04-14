@@ -15,7 +15,6 @@ export function boardFactory()
 
     initBoard();
     buildGraph();
-    console.log(graphMoves.graph)
 
     function getPath(start, end)
     {
