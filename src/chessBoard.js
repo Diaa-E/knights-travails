@@ -14,6 +14,7 @@ export function boardFactory()
     const graphMoves = listGraph();
 
     initBoard();
+    buildGraph();
 
     function initBoard()
     {
