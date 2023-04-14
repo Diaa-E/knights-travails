@@ -15,10 +15,25 @@ export function boardFactory()
 
     initBoard();
     buildGraph();
+    knightsTravails();
+
+    function knightsTravails()
+    {
+        for (let x = 0; x < 8; x++)
+        {
+            for (let y = 0; y < 8; y++)
+            {
+                if (board[y][x] === knight || board[y][x] === visited) continue; //skip visited squares
+
+                const path = getPath(knightPos, [x, y]);
+                movePath(path);
+            }
+        }
+    }
 
     function getPath(start, end)
     {
-        return graphMoves.findShortestPath(posToString(start), end);
+        return graphMoves.findShortestPath(posToString(start), posToString(end));
     }
 
     function movePath(path)
@@ -27,6 +42,7 @@ export function boardFactory()
 
             step = stringToPos(step);
             move(step[0], step[1]);
+            logBoard();
         })
     }
 
