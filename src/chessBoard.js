@@ -15,6 +15,7 @@ export function boardFactory()
 
     initBoard();
     buildGraph();
+    logBoard();
 
     function knightsTravails()
     {
