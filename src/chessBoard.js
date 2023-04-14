@@ -43,7 +43,6 @@ export function boardFactory()
 
             step = stringToPos(step);
             move(step[0], step[1]);
-            logBoard();
         })
     }
 
@@ -89,10 +88,13 @@ export function boardFactory()
     function move(x, y, mark = true)
     {
         if (x > 7 || y > 7) throw new Error(`Illegal move [${x}, ${y}]: out of board bounds`)
+        if (knightPos[0] === x && knightPos[1] === y) return; 
+        //fix knight getting stuck for 1 turn because it move to where it already is
 
         if (mark === true) markVisited(knightPos[0], knightPos[1]);
         board[y][x] = knight;
         knightPos = [x, y];
+        logBoard();
     }
 
     function markVisited(x, y)
