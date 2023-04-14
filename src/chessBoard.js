@@ -23,10 +23,11 @@ export function boardFactory()
         {
             for (let x = 0; x < 8; x++)
             {
-                if (board[y][x] === knight || board[y][x] === visited) continue; //skip visited squares
-
-                const path = getPath(knightPos, [x, y]);
-                movePath(path);
+                if (!(board[y][x] === knight || board[y][x] === visited)) //skip visited squares
+                {
+                    const path = getPath(knightPos, [x, y]);
+                    movePath(path);
+                }
             }
         }
     }
