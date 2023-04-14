@@ -71,13 +71,14 @@ export function boardFactory()
 
         patterns.forEach(pattern => {
 
-            let move = [0, 0];
-            move[0] = position[0] + pattern[0];
-            move[1] = position[1] + pattern[1];
+            let currentMove = [0, 0];
+            currentMove[0] = position[0] + pattern[0];
+            currentMove[1] = position[1] + pattern[1];
 
-            if (!(move[0] > 7 || move[1] > 7 || move[0] < 0 || move[1] < 0))
+            //exclude illegal moves
+            if (!(currentMove[0] > 7 || currentMove[1] > 7 || currentMove[0] < 0 || currentMove[1] < 0))
             {
-                nextMoves.push(move);
+                nextMoves.push(currentMove);
             }
         });
 
