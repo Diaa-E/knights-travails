@@ -3,4 +3,4 @@
 import { boardFactory } from "./chessBoard";
 
 const newBoard = boardFactory();
-newBoard.knightsTravails();
+newBoard.goCrazy();

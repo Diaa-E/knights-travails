@@ -17,7 +17,7 @@ export function boardFactory()
     buildGraph();
     logBoard();
 
-    function knightsTravails()
+    function goCrazy() //visit all squares
     {
         for (let y = 0; y < 8; y++)
         {
@@ -153,6 +153,6 @@ export function boardFactory()
     return {
         board: board,
         logBoard: logBoard,
-        knightsTravails: knightsTravails,
+        goCrazy: goCrazy,
     };
 }
