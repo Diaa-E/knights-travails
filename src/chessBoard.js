@@ -11,6 +11,8 @@ export function boardFactory()
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
+    const graphMoves = listGraph();
+
     initBoard();
 
     function initBoard()
@@ -85,6 +87,23 @@ export function boardFactory()
         });
 
         return nextMoves;
+    }
+
+    function buildGraph()
+    {
+        for (let i = 0; i < 8; i++)
+        {
+            for (let j = 0; j < 8; j++)
+            {
+                let neightbors = getNextMoves([i, j]);
+                graphMoves.addNode(`${i},${j}`);
+                
+                neightbors.forEach(neighbor => {
+
+                    graphMoves.addEdge(`${i},${j}`, neighbor)
+                });
+            }
+        }
     }
 
     return {
