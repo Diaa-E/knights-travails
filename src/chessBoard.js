@@ -15,20 +15,30 @@ export function boardFactory()
 
     initBoard();
     buildGraph();
+    console.log(graphMoves.graph)
 
     function getPath(start, end)
     {
-        return graphMoves.findShortestPath(start.join(","), end);
+        return graphMoves.findShortestPath(posToString(start), end);
     }
 
     function movePath(path)
     {
         path.forEach(step => {
 
-            step = step.split(",");
-            step = step.map(x => parseInt(x));
+            step = stringToPos(step);
             move(step[0], step[1]);
         })
+    }
+
+    function stringToPos(posString)
+    {
+        return posString.split(",").map(x => parseInt(x));
+    }
+
+    function posToString(pos)
+    {
+        return pos.join(",");
     }
 
     function initBoard()
@@ -112,11 +122,11 @@ export function boardFactory()
             for (let j = 0; j < 8; j++)
             {
                 let neightbors = getNextMoves([i, j]);
-                graphMoves.addNode(`${i},${j}`);
+                graphMoves.addNode(posToString([i, j]));
                 
                 neightbors.forEach(neighbor => {
 
-                    graphMoves.addEdge(`${i},${j}`, neighbor.join(","))
+                    graphMoves.addEdge(posToString([i, j]), posToString(neighbor))
                 });
             }
         }
