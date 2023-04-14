@@ -101,7 +101,7 @@ export function boardFactory()
                 
                 neightbors.forEach(neighbor => {
 
-                    graphMoves.addEdge(`${i},${j}`, neighbor)
+                    graphMoves.addEdge(`${i},${j}`, neighbor.join(","))
                 });
             }
         }
