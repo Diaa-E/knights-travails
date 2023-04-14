@@ -54,9 +54,40 @@ export function boardFactory()
         board[y][x] = visited;
     }
 
+    function getNextMoves(position = knightPos)
+    {
+        const patterns = [
+            [2, 1],
+            [-2, 1],
+            [2, -1],
+            [-2, -1],
+            [1, 2],
+            [-1, 2],
+            [1, -2],
+            [-1, -2],
+        ];
+
+        const nextMoves = [];
+
+        patterns.forEach(pattern => {
+
+            let move = [0, 0];
+            move[0] = position[0] + pattern[0];
+            move[1] = position[1] + pattern[1];
+
+            if (!(move[0] > 7 || move[1] > 7 || move[0] < 0 || move[1] < 0))
+            {
+                nextMoves.push(move);
+            }
+        });
+
+        return nextMoves;
+    }
+
     return {
         board: board,
         logBoard: logBoard,
         move: move,
+        getNextMoves: getNextMoves,
     };
 }
