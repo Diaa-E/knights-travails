@@ -15,7 +15,6 @@ export function boardFactory()
 
     initBoard();
     buildGraph();
-    knightsTravails();
 
     function knightsTravails()
     {
@@ -153,7 +152,6 @@ export function boardFactory()
     return {
         board: board,
         logBoard: logBoard,
-        move: move,
-        getNextMoves: getNextMoves,
+        knightsTravails: knightsTravails,
     };
 }
