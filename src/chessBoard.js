@@ -16,6 +16,21 @@ export function boardFactory()
     initBoard();
     buildGraph();
 
+    function getPath(start, end)
+    {
+        return graphMoves.findShortestPath(start.join(","), end);
+    }
+
+    function movePath(path)
+    {
+        path.forEach(step => {
+
+            step = step.split(",");
+            step = step.map(x => parseInt(x));
+            move(step[0], step[1]);
+        })
+    }
+
     function initBoard()
     {
         for (let i = 0; i < 8; i++)
