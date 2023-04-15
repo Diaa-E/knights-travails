@@ -5,6 +5,7 @@
     appearance: none;
     font: inherit;
     border: none;
+    list-style: none;
 }
 
 img, picture, svg, video{

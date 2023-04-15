@@ -67,7 +67,11 @@ function moveLog()
     const hTitle = document.createElement("h2");
     domUtility.addClasses(hTitle, ["log-title"]);
     hTitle.innerText = "Moves Log"
-    divLog.append(hTitle);
+    
+    const ulLog = document.createElement("ul");
+    domUtility.addClasses(ulLog, ["log-list"]);
+    
+    divLog.append(hTitle, ulLog);
 
     return divLog;
 }
