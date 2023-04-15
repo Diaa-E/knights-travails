@@ -1,2 +1,20 @@
 @import "./reset.css";
 
+@font-face {
+    font-family: "Audiowide";
+    src: url("../assets/fonts/Audiowide-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+:root{
+
+    --red: #e90064;
+    --background: #131124;
+    --purple:  #b4aee8;
+    --blue: #9ce1ff;
+}
+
+*{
+    font-family: "Audiowide", sans-serif;
+}
