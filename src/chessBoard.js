@@ -1,6 +1,7 @@
 "use strict";
 
 import { listGraph } from "./graph";
+import { display } from "./interface";
 
 export function boardFactory()
 {
@@ -12,10 +13,12 @@ export function boardFactory()
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
     const graphMoves = listGraph();
+    const newDisplay = display();
 
     initBoard();
     buildGraph();
     logBoard();
+    newDisplay.initDisplay();
 
     function goCrazy() //visit all squares
     {
