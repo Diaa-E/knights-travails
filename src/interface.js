@@ -12,7 +12,8 @@ export function display()
         domUtility.addClasses(body, ["main-grid"]);
 
         body.append(header());
-        body.append(controls())
+        body.append(controls());
+        body.append(moveLog());
     }
 
     return {
@@ -49,4 +50,24 @@ function controls()
     divWrapper.append(btnGoCrazy, btnClear, btnReset);
 
     return divWrapper;
+}
+
+function moveLog()
+{
+    const divLog = document.createElement("div");
+    domUtility.addClasses(divLog, ["log-wrapper"]);
+
+    for (let i = 1; i < 10; i++)
+    {
+        const div = document.createElement("div");
+        domUtility.addClasses(div, [`log${i}`, "log"]);
+        divLog.append(div);
+    }
+
+    const hTitle = document.createElement("h2");
+    domUtility.addClasses(hTitle, ["log-title"]);
+    hTitle.innerText = "Moves Log"
+    divLog.append(hTitle);
+
+    return divLog;
 }
