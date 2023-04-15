@@ -8,31 +8,55 @@
 }
 
 :root{
-
     --red: #e90064;
     --background: #131124;
     --purple:  #b4aee8;
     --blue: #9ce1ff;
+    --transparent: rgba(0, 0, 0, 0);
 }
 
 *{
     font-family: "Audiowide", sans-serif;
 }
 
-.main-grid{
-    
+.main-grid{    
     background-color: var(--background);
     display: grid;
     grid-template-rows: 1fr 3fr;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-    ". logo .";
+    ". logo ."
+    "controls . .";
     padding: 1%;
     place-items: center;
 }
 
 .logo{
-
     grid-area: logo;
     width: 500px;
+}
+
+.controls-wrapper{    
+    display: flex;
+    flex-direction: column;
+    grid-area: controls;
+}
+
+.button-regular{
+    font-size: 2rem;
+    color: var(--purple);
+    padding: 10px;
+    background-color: var(--transparent);
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+.button-special{
+    font-size: 2.5rem;
+    color: var(--red);
+}
+
+.button-regular:hover{
+    filter: brightness(150%);
+    transition: 300ms ease;
 }
