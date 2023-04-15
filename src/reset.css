@@ -4,6 +4,7 @@
     margin: 0;
     appearance: none;
     font: inherit;
+    border: none;
 }
 
 img, picture, svg, video{
