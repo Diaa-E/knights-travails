@@ -14,3 +14,13 @@
 * A knight's possible moves at any position all follow the same pattern
 
 ![Next Moves Pattern](./pattern_guide.png)
+
+* Mockup
+
+![UI mockup](./mockup/mockup.jpg)
+
+* Wireframes
+
+![Body wireframe](./mockup/body_wire.jpg)
+
+![Components wireframe](./mockup/components_wire.jpg)
