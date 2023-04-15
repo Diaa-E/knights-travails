@@ -15,7 +15,11 @@
 
 ![Next Moves Pattern](./pattern_guide.png)
 
-* Mockup
+## UI Design
+
+### Mockups
+
+* UI Mockup
 
 ![UI mockup](./mockup/mockup.jpg)
 
@@ -24,3 +28,17 @@
 ![Body wireframe](./mockup/body_wire.jpg)
 
 ![Components wireframe](./mockup/components_wire.jpg)
+
+### Color palette
+
+![Backgound](./mockup/dark_blue.jpg)
+#131124
+
+![Red accent](./mockup/red.jpg)
+#e90064
+
+![Pruple accent](./mockup/purple.jpg)
+#b4aee8
+
+![Main blue](./mockup/blue.jpg)
+#9ce1ff
