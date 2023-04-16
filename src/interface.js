@@ -82,5 +82,34 @@ function board()
     const divBoard = document.createElement("div");
     domUtility.addClasses(divBoard, ["board-wrapper"]);
 
+    const divCheckers = document.createElement("div");
+    domUtility.addClasses(divCheckers, ["checkers-wrapper"]);
+    divBoard.append(divCheckers);
+
+    const checkers = ["sq-white", "sq-black"];
+    let currentBlack = true;
+
+    for (let x = 0; x < 8; x++)
+    {
+        currentBlack = !currentBlack; //invert after each row
+
+        for (let y = 0; y < 8; y++)
+        {
+            const divSquare = document.createElement("div");
+
+            if (currentBlack)
+            {
+                domUtility.addClasses(divSquare, [checkers[1]]);
+            }
+            else
+            {
+                domUtility.addClasses(divSquare, [checkers[0]]);
+            }
+
+            currentBlack = !currentBlack
+            divCheckers.append(divSquare);
+        }
+    }
+
     return divBoard;
 }
