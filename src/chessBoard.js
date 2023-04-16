@@ -8,6 +8,7 @@ export function boardFactory()
     const knight = "K";
     let knightPos = [0, 0];
     const visited = "V";
+    const empty = "☐";
     let board = [];
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -63,7 +64,7 @@ export function boardFactory()
     {
         for (let i = 0; i < 8; i++)
         {
-            let row = Array(8).fill("☐");
+            let row = Array(8).fill(empty);
             board.push(row);
         }
 
@@ -105,6 +106,7 @@ export function boardFactory()
                 board: board,
                 knight: knight,
                 visited: visited,
+                empty: empty,
             }
         });
 

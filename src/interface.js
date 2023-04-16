@@ -21,15 +21,42 @@ export function display()
 
         document.addEventListener("boardChange", e => {
 
-            
+            updateDisplay(
+                e.detail.board,
+                e.detail.knight,
+                e.detail.visited,
+                e.detail.empty
+                );
         })
-
-        console.log(divBoardSquares)
     }
 
-    function updateDisplay(gameBoard, knight, visited)
+    function updateDisplay(gameBoard, knight, visited, empty)
     {
-        
+        for (let y = 0; y < 8; y++)
+        {
+            for (let x = 0; x < 8; x++)
+            {
+                if (gameBoard[y][x] === empty)
+                {
+                    stripSquare(divBoardSquares[y][x]);
+                }
+                else if (gameBoard[y][x] === knight)
+                {
+                    stripSquare(divBoardSquares[y][x]);
+                    domUtility.addClasses(divBoardSquares[y][x], ["sq-knight"]);
+                }
+                else if (gameBoard[y][x] === visited)
+                {
+                    stripSquare(divBoardSquares[y][x]);
+                    domUtility.addClasses(divBoardSquares[y][x], ["sq-visited"]);
+                }
+            }
+        }
+    }
+
+    function stripSquare(square)
+    {
+        domUtility.removeClasses(square, ["sq-knight", "sq-visited"]);
     }
 
     function header()
