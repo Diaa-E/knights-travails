@@ -1,5 +1,6 @@
 @import "./reset.css";
 @import "./movesLog.css";
+@import "./controls.css";
 
 @font-face {
     font-family: "Audiowide";
@@ -36,30 +37,4 @@
 .logo{
     grid-area: logo;
     width: 500px;
-}
-
-.controls-wrapper{    
-    display: flex;
-    flex-direction: column;
-    grid-area: controls;
-    gap: 10px;
-}
-
-.button-regular{
-    font-size: 2rem;
-    color: var(--purple);
-    padding: 10px;
-    background-color: var(--transparent);
-    cursor: pointer;
-    transition: 300ms ease;
-}
-
-.button-special{
-    font-size: 2.5rem;
-    color: var(--red);
-}
-
-.button-regular:hover{
-    filter: brightness(150%);
-    transition: 300ms ease;
 }
