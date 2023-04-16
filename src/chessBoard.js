@@ -66,17 +66,37 @@ export function boardFactory()
 
     function goCrazy() //visit all squares
     {
+        let dummyBoard = Array(8).fill([]);
+        for (let i =0; i < board.length; i++)
+        {
+            dummyBoard[i] = [...board[i]];
+        }
+
+        let dummyPos = knightPos;
+        let finalPath = [];
+        //To avoid having all timeouts starting at the same time at the loop
+        //A final path needs to be constructed, which holds all moves from start to finish
+        //To acheive that a copy of board state is needed to avoid modifying the original before moving in path
+
         for (let y = 0; y < 8; y++)
         {
             for (let x = 0; x < 8; x++)
             {
-                if (!(board[y][x] === knight || board[y][x] === visited)) //skip visited squares
+                if (!(dummyBoard[y][x] === knight || dummyBoard[y][x] === visited)) //skip visited squares
                 {
-                    const path = getPath(knightPos, [x, y]);
-                    movePath(path);
+                    const path = getPath(dummyPos, [x, y]);
+
+                    path.forEach(step => {
+                        const temp = stringToPos(step)
+                        dummyBoard[temp[1]][temp[0]] = visited;
+                        finalPath.push(step);
+                    });
+
+                    dummyPos = [x, y];
                 }
             }
         }
+        movePath(finalPath);
     }
 
     function getPath(start, end)
