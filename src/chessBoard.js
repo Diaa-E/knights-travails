@@ -6,12 +6,23 @@ import { display } from "./interface";
 export function boardFactory()
 {   
     const knight = "K";
-    let knightPos = [0, 0];
+    let knightPos = getRandomPosition();
     const visited = "V";
     const empty = "☐";
     let board = [];
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+    const boardChangeEvent = new CustomEvent("boardChange", {
+        bubbles: true,
+        detail: {
+            board: board,
+            knight: knight,
+            visited: visited,
+            empty: empty,
+        }
+    });
+
 
     const graphMoves = listGraph();
     const newDisplay = display();
@@ -20,6 +31,12 @@ export function boardFactory()
     buildGraph();
     logBoard();
     newDisplay.initDisplay();
+    document.dispatchEvent(boardChangeEvent);
+
+    function getRandomPosition()
+    {
+        return [Math.round(Math.random()*7), Math.round(Math.random()*7)];
+    }
 
     function goCrazy() //visit all squares
     {
@@ -99,16 +116,6 @@ export function boardFactory()
         board[y][x] = knight;
         knightPos = [x, y];
         logBoard();
-
-        const boardChangeEvent = new CustomEvent("boardChange", {
-            bubbles: true,
-            detail: {
-                board: board,
-                knight: knight,
-                visited: visited,
-                empty: empty,
-            }
-        });
 
         document.dispatchEvent(boardChangeEvent);
     }
