@@ -31,7 +31,8 @@
     "controls board log";
     padding: 1%;
     place-items: center;
-    gap: 2%;
+    row-gap: 5%;
+    column-gap: 2%;
 }
 
 .logo{
