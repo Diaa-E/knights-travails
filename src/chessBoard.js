@@ -1,7 +1,6 @@
 "use strict";
 
 import { listGraph } from "./graph";
-import { display } from "./interface";
 
 export function boardFactory()
 {   
@@ -26,12 +25,9 @@ export function boardFactory()
 
     function startGame()
     {
-        const newDisplay = display();
-    
         initBoard();
         buildGraph();
         logBoard();
-        newDisplay.initDisplay();
         document.dispatchEvent(boardChangeEvent);
     }
 
