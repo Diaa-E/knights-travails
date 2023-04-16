@@ -4,7 +4,7 @@ import { listGraph } from "./graph";
 import { display } from "./interface";
 
 export function boardFactory()
-{
+{   
     const knight = "K";
     let knightPos = [0, 0];
     const visited = "V";
@@ -98,6 +98,17 @@ export function boardFactory()
         board[y][x] = knight;
         knightPos = [x, y];
         logBoard();
+
+        const boardChangeEvent = new CustomEvent("boardChange", {
+            bubbles: true,
+            detail: {
+                board: board,
+                knight: knight,
+                visited: visited,
+            }
+        });
+
+        document.dispatchEvent(boardChangeEvent);
     }
 
     function markVisited(x, y)

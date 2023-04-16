@@ -16,7 +16,12 @@ export function display()
             controls(),
             board(),
             moveLog(),
-        )
+        );
+
+        document.addEventListener("boardChange", e => {
+
+            
+        })
     }
 
     return {
