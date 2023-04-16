@@ -12,6 +12,7 @@ export function boardFactory()
     let board = [];
     let columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
     let rowNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    const graphMoves = listGraph();
 
     const boardChangeEvent = new CustomEvent("boardChange", {
         bubbles: true,
@@ -23,15 +24,16 @@ export function boardFactory()
         }
     });
 
-
-    const graphMoves = listGraph();
-    const newDisplay = display();
-
-    initBoard();
-    buildGraph();
-    logBoard();
-    newDisplay.initDisplay();
-    document.dispatchEvent(boardChangeEvent);
+    function startGame()
+    {
+        const newDisplay = display();
+    
+        initBoard();
+        buildGraph();
+        logBoard();
+        newDisplay.initDisplay();
+        document.dispatchEvent(boardChangeEvent);
+    }
 
     function getRandomPosition()
     {
@@ -177,5 +179,6 @@ export function boardFactory()
         board: board,
         logBoard: logBoard,
         goCrazy: goCrazy,
+        startGame: startGame
     };
 }
