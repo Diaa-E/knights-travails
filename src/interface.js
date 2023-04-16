@@ -1,6 +1,7 @@
 "use strict";
 
 import domUtility from "./dom.utility";
+import { posToString, stringToPos } from "./positionConverter";
 import logo from "../assets/images/logo.svg";
 
 export function display()
@@ -135,7 +136,19 @@ export function display()
             {
                 const divSquare = document.createElement("div");
 
-                divSquare.setAttribute("data-XY", `${x},${y}`)
+                divSquare.setAttribute("data-XY", posToString([x, y]));
+
+                divSquare.addEventListener("click", e => {
+
+                    const moveEvent = new CustomEvent("move", {
+                        bubbles: true,
+                        detail: {
+                            end: stringToPos(divSquare.getAttribute("data-XY")),
+                        }
+                    });
+
+                    divSquare.dispatchEvent(moveEvent);
+                });
 
                 if (currentBlack)
                 {

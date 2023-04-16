@@ -1,6 +1,7 @@
 "use strict";
 
 import { listGraph } from "./graph";
+import { posToString, stringToPos } from "./positionConverter";
 
 export function boardFactory()
 {   
@@ -21,6 +22,12 @@ export function boardFactory()
             visited: visited,
             empty: empty,
         }
+    });
+
+    document.addEventListener("move", e => {
+
+        const path = getPath(knightPos, e.detail.end);
+        movePath(path);
     });
 
     function startGame()
@@ -63,16 +70,6 @@ export function boardFactory()
             step = stringToPos(step);
             move(step[0], step[1]);
         })
-    }
-
-    function stringToPos(posString)
-    {
-        return posString.split(",").map(x => parseInt(x));
-    }
-
-    function posToString(pos)
-    {
-        return pos.join(",");
     }
 
     function initBoard()
