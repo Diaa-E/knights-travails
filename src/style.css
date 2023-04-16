@@ -1,4 +1,5 @@
 @import "./reset.css";
+@import "./movesLog.css";
 
 @font-face {
     font-family: "Audiowide";
@@ -61,103 +62,4 @@
 .button-regular:hover{
     filter: brightness(150%);
     transition: 300ms ease;
-}
-
-.log-wrapper{
-    grid-area: log;
-    display: grid;
-    grid-template-columns: 50px 2fr 50px;
-    grid-template-rows: 4rem 50px 2fr 50px;
-    grid-template-areas:
-    "logTitle logTitle logTitle"
-    "log1 log2 log3"
-    "log4 log5 log6"
-    "log7 log8 log9";
-    height: 100%;
-    width: 100%;
-}
-
-.log-title{
-    grid-area: logTitle;
-    font-size: 2rem;
-    color: var(--purple);
-}
-
-.log{
-    background-size: contain;
-}
-
-.log1{
-    grid-area: log1;
-    background-image: url("../assets/images/log_corner_1.svg");
-    background-repeat: no-repeat;
-}
-
-.log2{
-    grid-area: log2;
-    background-image: url("../assets/images/log_top.svg");
-    background-repeat: repeat-x;
-}
-
-.log3{
-    grid-area: log3;
-    background-image: url("../assets/images/log_corner_2.svg");
-    background-repeat: no-repeat;
-}
-
-.log4{
-    grid-area: log4;
-    background-image: url("../assets/images/log_left.svg");
-    background-repeat: repeat-y;
-}
-
-.log5{
-    grid-area: log5;
-    background-image: url("../assets/images/log_back.svg");
-    background-repeat: repeat;
-}
-
-.log6{
-    grid-area: log6;
-    background-image: url("../assets/images/log_right.svg");
-    background-repeat: repeat-y;
-}
-
-.log7{
-    grid-area: log7;
-    background-image: url("../assets/images/log_corner_4.svg");
-    background-repeat: no-repeat;
-}
-
-.log8{
-    grid-area: log8;
-    background-image: url("../assets/images/log_bottom.svg");
-    background-repeat: repeat-x;
-}
-
-.log9{
-    grid-area: log9;
-    background-image: url("../assets/images/log_corner_3.svg");
-    background-repeat: no-repeat;
-}
-
-.log-list{
-    grid-area: 2 / 1 / 4 / 3;
-    overflow: scroll;
-    max-height: 380px;
-    margin: 15px;
-    color: var(--blue);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 1.2rem;
-
-    /*hide scroll bar in edge and firefox*/
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/*hide scroll bar in chrome and safari*/
-.log-list::-webkit-scrollbar{
-    display: none;
 }
