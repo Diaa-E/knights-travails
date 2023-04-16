@@ -143,7 +143,7 @@ export function display()
                     const moveEvent = new CustomEvent("move", {
                         bubbles: true,
                         detail: {
-                            end: stringToPos(divSquare.getAttribute("data-XY")),
+                            end: stringToPos(e.target.getAttribute("data-XY")),
                         }
                     });
 
