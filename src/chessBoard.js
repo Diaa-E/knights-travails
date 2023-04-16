@@ -65,11 +65,18 @@ export function boardFactory()
 
     function movePath(path)
     {
-        path.forEach(step => {
+        for (let i = 0; i < path.length; i++)
+        {
+            path[i] = stringToPos(path[i]);
 
-            step = stringToPos(step);
-            move(step[0], step[1]);
-        })
+            setTimeout(() => {
+                move(path[i][0], path[i][1]);
+            }, 500*(i - 1)); 
+            //since the loop resolves almost instantly, timeouts are all set at the same 
+            //starting point and resolve simoultinously.
+            //the i - 1 accounts for the first move which is the knight's current position
+            //and prevents delaying the first move (looks as if the app halted)
+        }
     }
 
     function initBoard()
