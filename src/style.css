@@ -70,11 +70,18 @@
 }
 
 .sq-white:hover{
-    filter: brightness(130%);
     transition: 300ms ease;
 }
 
 .sq-black:hover{
-    filter: brightness(400%);
     transition: 300ms ease;
+}
+
+.sq-visited{
+    background-image: url("../assets/images/cross.svg");
+    background-size: contain;
+}
+
+.sq-black:hover, .sq-white:hover{
+    filter: brightness(150%);
 }

@@ -96,6 +96,7 @@ function board()
         for (let y = 0; y < 8; y++)
         {
             const divSquare = document.createElement("div");
+            divSquare.setAttribute("data-XY", `${x},${y}`)
 
             if (currentBlack)
             {
