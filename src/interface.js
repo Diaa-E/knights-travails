@@ -101,6 +101,11 @@ export function display()
         domUtility.addClasses(btnClear, ["button-regular"]);
         btnClear.innerText = "Clear Log";
 
+        btnClear.addEventListener("click", () => {
+
+            ulLog.innerHTML = "";
+        })
+
         const btnReset = document.createElement("button");
         domUtility.addClasses(btnReset, ["button-regular"]);
         btnReset.innerText = "Reset";
