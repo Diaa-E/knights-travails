@@ -30,12 +30,30 @@ export function boardFactory()
         movePath(path);
     });
 
+    document.addEventListener("reset", e => {
+
+        reset();
+        logBoard();
+        document.dispatchEvent(boardChangeEvent);
+    });
+
     function startGame()
     {
         initBoard();
         buildGraph();
         logBoard();
         document.dispatchEvent(boardChangeEvent);
+    }
+
+    function reset()
+    {
+        for (let i = 0; i < 8; i++)
+        {
+            for (let j = 0; j < 8; j++)
+            {
+                if (board[i][j] === visited) board[i][j] = empty;
+            }
+        }
     }
 
     function getRandomPosition()

@@ -86,6 +86,15 @@ export function display()
         domUtility.addClasses(btnReset, ["button-regular"]);
         btnReset.innerText = "Reset";
 
+        btnReset.addEventListener("click", (e) => {
+
+            const eventReset = new CustomEvent("reset", {
+                bubbles: true,
+            });
+
+            e.target.dispatchEvent(eventReset);
+        });
+
         divWrapper.append(btnGoCrazy, btnClear, btnReset);
 
         return divWrapper;
