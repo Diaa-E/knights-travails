@@ -14,6 +14,7 @@ export function display()
         body.append(header());
         body.append(controls());
         body.append(moveLog());
+        body.append(board());
     }
 
     return {
@@ -74,4 +75,12 @@ function moveLog()
     divLog.append(hTitle, ulLog);
 
     return divLog;
+}
+
+function board()
+{
+    const divBoard = document.createElement("div");
+    domUtility.addClasses(divBoard, ["board-wrapper"]);
+
+    return divBoard;
 }

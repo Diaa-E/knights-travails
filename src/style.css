@@ -28,7 +28,7 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
     ". logo ."
-    "controls . log";
+    "controls board log";
     padding: 1%;
     place-items: center;
     gap: 2%;
@@ -37,4 +37,12 @@
 .logo{
     grid-area: logo;
     width: 500px;
+}
+
+.board-wrapper{
+    grid-area: board;
+    background-image: url("../assets/images/board.svg");
+    background-size: contain;
+    height: 600px;
+    width: 600px;
 }
