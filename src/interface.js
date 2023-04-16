@@ -7,6 +7,12 @@ import logo from "../assets/images/logo.svg";
 export function display()
 {
     const divBoardSquares = [];
+    const ulLog = document.createElement("ul");
+
+    document.addEventListener("log", e => {
+
+        logMove(e.detail.start, e.detail.end);
+    });
 
     function initDisplay()
     {
@@ -53,6 +59,19 @@ export function display()
                 }
             }
         }
+    }
+
+    function logMove(start, end)
+    {
+        const liLogEntry = document.createElement("li");
+        liLogEntry.innerText = formatMove(start, end);
+        ulLog.append(liLogEntry);
+    }
+
+    function formatMove(start, end)
+    {
+        const letters = ["A", "B", "C", "D", "E", "F", "G", "H"]
+        return `From ${letters[start[0]]}${start[1] + 1} to ${letters[end[0]]}${end[1] + 1}`;
     }
 
     function stripSquare(square)
@@ -116,7 +135,6 @@ export function display()
         domUtility.addClasses(hTitle, ["log-title"]);
         hTitle.innerText = "Moves Log"
         
-        const ulLog = document.createElement("ul");
         domUtility.addClasses(ulLog, ["log-list"]);
         
         divLog.append(hTitle, ulLog);

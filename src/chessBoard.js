@@ -132,12 +132,22 @@ export function boardFactory()
         if (knightPos[0] === x && knightPos[1] === y) return; 
         //fix knight getting stuck for 1 turn because it move to where it already is
 
+        const eventLogMove = new CustomEvent("log", {
+            bubbles: true,
+            detail: {
+                start: knightPos,
+                end: [x, y],
+            }
+        });
+
         if (mark === true) markVisited(knightPos[0], knightPos[1]);
         board[y][x] = knight;
         knightPos = [x, y];
         logBoard();
 
+        document.dispatchEvent(eventLogMove);
         document.dispatchEvent(boardChangeEvent);
+        
     }
 
     function markVisited(x, y)
