@@ -85,3 +85,8 @@
 .sq-black:hover, .sq-white:hover{
     filter: brightness(150%);
 }
+
+.sq-knight{
+    background-image: url("../assets/images/knight.svg");
+    background-size: contain;
+}
