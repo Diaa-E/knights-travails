@@ -11,10 +11,12 @@ export function display()
         const body = document.querySelector("body");
         domUtility.addClasses(body, ["main-grid"]);
 
-        body.append(header());
-        body.append(controls());
-        body.append(moveLog());
-        body.append(board());
+        body.append(
+            header(),
+            controls(),
+            board(),
+            moveLog(),
+        )
     }
 
     return {
