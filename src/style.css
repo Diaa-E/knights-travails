@@ -58,9 +58,23 @@
 }
 
 .sq-black{
-    background-color: var(--transparent);
+    background-color: var(--background);
+    transition: 300ms ease;
+    cursor: pointer;
 }
 
 .sq-white{
     background-color: var(--blue);
+    transition: 300ms ease;
+    cursor: pointer;
+}
+
+.sq-white:hover{
+    filter: brightness(130%);
+    transition: 300ms ease;
+}
+
+.sq-black:hover{
+    filter: brightness(400%);
+    transition: 300ms ease;
 }
