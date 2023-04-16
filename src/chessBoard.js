@@ -33,7 +33,6 @@ export function boardFactory()
     document.addEventListener("reset", e => {
 
         reset();
-        logBoard();
         document.dispatchEvent(boardChangeEvent);
     });
 
@@ -41,7 +40,6 @@ export function boardFactory()
     {
         initBoard();
         buildGraph();
-        logBoard();
         document.dispatchEvent(boardChangeEvent);
     }
 
@@ -143,7 +141,6 @@ export function boardFactory()
         if (mark === true) markVisited(knightPos[0], knightPos[1]);
         board[y][x] = knight;
         knightPos = [x, y];
-        logBoard();
 
         document.dispatchEvent(eventLogMove);
         document.dispatchEvent(boardChangeEvent);
