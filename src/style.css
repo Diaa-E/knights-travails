@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./movesLog.css";
 @import "./controls.css";
+@import "./board.css";
 
 @font-face {
     font-family: "Audiowide";
@@ -38,55 +39,4 @@
 .logo{
     grid-area: logo;
     width: 500px;
-}
-
-.board-wrapper{
-    grid-area: board;
-    background-image: url("../assets/images/board.svg");
-    background-size: contain;
-    height: 600px;
-    width: 600px;
-    padding: 55px;
-}
-
-.checkers-wrapper{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-}
-
-.sq-black{
-    background-color: var(--background);
-    transition: 300ms ease;
-    cursor: pointer;
-}
-
-.sq-white{
-    background-color: var(--blue);
-    transition: 300ms ease;
-    cursor: pointer;
-}
-
-.sq-white:hover{
-    transition: 300ms ease;
-}
-
-.sq-black:hover{
-    transition: 300ms ease;
-}
-
-.sq-visited{
-    background-image: url("../assets/images/cross.svg");
-    background-size: contain;
-}
-
-.sq-black:hover, .sq-white:hover{
-    filter: brightness(150%);
-}
-
-.sq-knight{
-    background-image: url("../assets/images/knight.svg");
-    background-size: contain;
 }
