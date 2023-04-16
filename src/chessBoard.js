@@ -36,6 +36,11 @@ export function boardFactory()
         document.dispatchEvent(boardChangeEvent);
     });
 
+    document.addEventListener("goneCrazy", () => {
+
+        goCrazy();
+    })
+
     function startGame()
     {
         initBoard();

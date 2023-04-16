@@ -97,6 +97,15 @@ export function display()
         domUtility.addClasses(btnGoCrazy, ["button-regular", "button-special"]);
         btnGoCrazy.innerText = "GO CRAZY!";
 
+        btnGoCrazy.addEventListener("click", (e) => {
+
+            const eventCrazy = new CustomEvent("goneCrazy", {
+                bubbles: true,
+            });
+
+            e.target.dispatchEvent(eventCrazy);
+        });
+
         const btnClear = document.createElement("button");
         domUtility.addClasses(btnClear, ["button-regular"]);
         btnClear.innerText = "Clear Log";
