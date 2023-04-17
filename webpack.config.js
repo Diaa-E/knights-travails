@@ -2,10 +2,13 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-const stylesHandler = 'style-loader';
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
     entry: './src/main.js',
@@ -39,6 +42,9 @@ const config = {
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
     },
+    optimization: {
+        minimizer: []
+    },
 };
 
 module.exports = () => {
@@ -52,6 +58,9 @@ module.exports = () => {
                 filename: "[name].[contenthash].html",
             }),
         )
+        config.plugins.push(new MiniCssExtractPlugin({filename: "[name].[hash].css"}));
+        config.optimization.minimizer.push(new CssMinimizerPlugin());
+        config.optimization.minimizer.push(new TerserPlugin());
         
     } else {
         config.mode = 'development';
