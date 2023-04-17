@@ -55,8 +55,8 @@
         grid-area: board;
         background-image: url("../assets/images/board.svg");
         background-size: contain;
-        height: 600px;
-        width: 600px;
-        padding: 55px;
+        height: 500px;
+        width: 500px;
+        padding: 47px;
     }
 }
