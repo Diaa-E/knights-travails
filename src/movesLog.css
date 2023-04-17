@@ -3,7 +3,7 @@
     grid-area: log;
     display: grid;
     grid-template-columns: 50px 2fr 50px;
-    grid-template-rows: 4rem 50px 2fr 50px;
+    grid-template-rows: 5rem 50px 2fr 50px;
     grid-template-areas:
     "logTitle logTitle logTitle"
     "log1 log2 log3"
@@ -15,7 +15,7 @@
 
 .log-title{
     grid-area: logTitle;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--purple);
 }
 
@@ -101,14 +101,15 @@
 @media (min-width: 900px){
 
     .log-list{
-        grid-area: 2 / 1 / 4 / 3;
-        overflow: scroll;
         max-height: 380px;
-        margin: 15px;
-        color: var(--blue);
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
         font-size: 1.2rem;
+    }
+
+    .log-title{
+        font-size: 2rem;
+    }
+
+    .log-wrapper{
+        grid-template-rows: 4rem 50px 2fr 50px;
     }
 }

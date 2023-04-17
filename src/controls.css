@@ -6,7 +6,7 @@
 }
 
 .button-regular{
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--purple);
     padding: 10px;
     background-color: var(--transparent);
@@ -15,11 +15,22 @@
 }
 
 .button-special{
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: var(--red);
 }
 
 .button-regular:hover{
     filter: brightness(150%);
     transition: 300ms ease;
+}
+
+@media (min-width: 900px){
+
+    .button-regular{
+        font-size: 2rem;
+    }
+
+    .button-special{
+        font-size: 2.5rem;
+    }
 }
