@@ -119,7 +119,7 @@ export function boardFactory()
         signalBoardBusy();
         setTimeout(() => {
             signalBoardClear();
-        }, (path.length * 500) + 500); //stay busy for the duration of the path motion + 500 ms to account for possible inaccuracy
+        }, ((path.length - 1) * 500)); //stay busy for the duration of the path motion
 
         for (let i = 0; i < path.length; i++)
         {
