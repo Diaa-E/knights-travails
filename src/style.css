@@ -40,3 +40,8 @@
     grid-area: logo;
     width: 500px;
 }
+
+.busy, .busy:hover{
+    cursor: not-allowed;
+    filter: brightness(100%); /*neutralize previously existing hover effects*/
+}

@@ -116,10 +116,16 @@ export function boardFactory()
 
     function movePath(path)
     {
+        signalBoardBusy();
+        setTimeout(() => {
+            signalBoardClear();
+        }, (path.length * 500) + 500); //stay busy for the duration of the path motion + 500 ms to account for possible inaccuracy
+
         for (let i = 0; i < path.length; i++)
         {
             path[i] = stringToPos(path[i]);
 
+            
             setTimeout(() => {
                 move(path[i][0], path[i][1]);
             }, 500*(i - 1)); 
@@ -128,6 +134,18 @@ export function boardFactory()
             //the i - 1 accounts for the first move which is the knight's current position
             //and prevents delaying the first move (looks as if the app halted)
         }
+    }
+
+    function signalBoardBusy()
+    {
+        const eventBusy = new CustomEvent("boardBusy", {bubbles: true});
+        document.dispatchEvent(eventBusy);
+    }
+
+    function signalBoardClear()
+    {
+        const eventClear = new CustomEvent("boardClear", {bubbles: true});
+        document.dispatchEvent(eventClear);
     }
 
     function initBoard()

@@ -6,6 +6,7 @@ import logo from "../assets/images/logo.svg";
 
 export function display()
 {
+    let busy = false;
     const divBoardSquares = [];
     const ulLog = document.createElement("ul");
 
@@ -34,7 +35,19 @@ export function display()
                 e.detail.visited,
                 e.detail.empty
                 );
-        })
+        });
+
+        document.addEventListener("boardBusy", () => {
+
+            busy = true;
+            setBusy();
+        });
+
+        document.addEventListener("boardClear", () => {
+
+            busy = false;
+            clearBusy();
+        });
     }
 
     function updateDisplay(gameBoard, knight, visited, empty)
@@ -59,6 +72,42 @@ export function display()
                 }
             }
         }
+    }
+
+    function setBusy()
+    {
+        divBoardSquares.forEach(row => {
+
+            row.forEach(square => {
+
+                domUtility.addClasses(square, ["busy"]);
+            });
+        });
+
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(button => {
+
+            domUtility.addClasses(button, ["busy"]);
+        });
+    }
+
+    function clearBusy()
+    {
+        divBoardSquares.forEach(row => {
+
+            row.forEach(square => {
+
+                domUtility.removeClasses(square, ["busy"]);
+            });
+        });
+
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(button => {
+
+            domUtility.removeClasses(button, ["busy"]);
+        });
     }
 
     function logMove(start, end)
@@ -99,6 +148,8 @@ export function display()
 
         btnGoCrazy.addEventListener("click", (e) => {
 
+            if (busy) return;
+
             const eventCrazy = new CustomEvent("goneCrazy", {
                 bubbles: true,
             });
@@ -112,6 +163,8 @@ export function display()
 
         btnClear.addEventListener("click", () => {
 
+            if (busy) return;
+
             ulLog.innerHTML = "";
         })
 
@@ -120,6 +173,8 @@ export function display()
         btnReset.innerText = "Reset";
 
         btnReset.addEventListener("click", (e) => {
+
+            if (busy) return;
 
             const eventReset = new CustomEvent("reset", {
                 bubbles: true,
@@ -180,6 +235,8 @@ export function display()
                 divSquare.setAttribute("data-XY", posToString([x, y]));
 
                 divSquare.addEventListener("click", e => {
+
+                    if (busy) return;
 
                     const moveEvent = new CustomEvent("move", {
                         bubbles: true,
