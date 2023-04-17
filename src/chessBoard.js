@@ -96,6 +96,16 @@ export function boardFactory()
                 }
             }
         }
+
+        //remove consecutive duplicates
+        for(let i = 0; i < finalPath.length; i++)
+        {
+            if (finalPath[i] === finalPath[i - 1])
+            {
+                finalPath.splice(i, 1);
+            }
+        }
+
         movePath(finalPath);
     }
 
