@@ -25,15 +25,16 @@
 .main-grid{    
     background-color: var(--background);
     display: grid;
-    grid-template-rows: 1fr 3fr;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 800px;
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    ". logo ."
-    "controls board log";
-    padding: 1%;
+    "logo"
+    "board"
+    "controls"
+    "log";
+    padding: 5%;
     place-items: center;
-    row-gap: 5%;
-    column-gap: 2%;
+    row-gap: 2%;
 }
 
 .logo{
@@ -44,4 +45,21 @@
 .busy, .busy:hover{
     cursor: not-allowed;
     filter: brightness(100%); /*neutralize previously existing hover effects*/
+}
+
+@media (min-width: 900px){
+
+    .main-grid{    
+        background-color: var(--background);
+        display: grid;
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+        ". logo ."
+        "controls board log";
+        padding: 1%;
+        place-items: center;
+        row-gap: 5%;
+        column-gap: 2%;
+    }
 }

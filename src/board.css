@@ -2,9 +2,9 @@
     grid-area: board;
     background-image: url("../assets/images/board.svg");
     background-size: contain;
-    height: 600px;
-    width: 600px;
-    padding: 55px;
+    height: 90vw;
+    width: 90vw;
+    padding: 9%;
 }
 
 .checkers-wrapper{
@@ -47,4 +47,16 @@
 .sq-knight{
     background-image: url("../assets/images/knight.svg");
     background-size: contain;
+}
+
+@media (min-width: 900px){
+
+    .board-wrapper{
+        grid-area: board;
+        background-image: url("../assets/images/board.svg");
+        background-size: contain;
+        height: 600px;
+        width: 600px;
+        padding: 55px;
+    }
 }

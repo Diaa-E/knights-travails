@@ -80,13 +80,13 @@
 .log-list{
     grid-area: 2 / 1 / 4 / 3;
     overflow: scroll;
-    max-height: 380px;
+    max-height: 100%;
     margin: 15px;
     color: var(--blue);
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 1.2rem;
+    font-size: 2rem;
 
     /*hide scroll bar in edge and firefox*/
     -ms-overflow-style: none;
@@ -96,4 +96,19 @@
 /*hide scroll bar in chrome and safari*/
 .log-list::-webkit-scrollbar{
     display: none;
+}
+
+@media (min-width: 900px){
+
+    .log-list{
+        grid-area: 2 / 1 / 4 / 3;
+        overflow: scroll;
+        max-height: 380px;
+        margin: 15px;
+        color: var(--blue);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 1.2rem;
+    }
 }
